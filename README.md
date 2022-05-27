@@ -1,2 +1,1 @@
-# Ragima
-Ragima
+This is Data Science Scaler Program Course 
