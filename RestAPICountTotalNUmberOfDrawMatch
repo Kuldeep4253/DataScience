@@ -1,0 +1,19 @@
+import requests
+
+def getNumDraws(year):
+    # Write your code here
+    count=0
+    url="https://jsonmock.hackerrank.com/api/football_matches?year="+year
+    r = requests.get(url)
+    data = r.json() 
+    page_size=data['total_pages']
+    for i in range(1,197):
+        url="https://jsonmock.hackerrank.com/api/football_matches?year="+year+"&page="+str(i)
+        r = requests.get(url)
+        data=''
+        data = r.json()
+        len1=len(data['data'])
+        for j in range(0,len1):
+            if data['data'][j]['team1goals']==data['data'][j]['team2goals']:
+                count=count+1
+    return count
